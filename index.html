@@ -110,113 +110,78 @@
   .hero-grid {
     position: absolute;
     inset: 0;
-    background-image:
-      linear-gradient(rgba(0,82,255,0.06) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0,82,255,0.06) 1px, transparent 1px);
-    background-size: 48px 48px;
+    background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
   }
   .hero-inner {
+    position: relative;
     max-width: 1140px;
     margin: 0 auto;
-    padding: 80px 24px 80px;
-    position: relative;
-    z-index: 2;
+    padding: 80px 24px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 60px;
     align-items: center;
   }
+  @media(max-width:768px){ .hero-inner { grid-template-columns: 1fr; gap: 40px; } }
+
   .hero-badge {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: rgba(0,212,170,0.12);
+    background: rgba(0,212,170,0.15);
     border: 1px solid rgba(0,212,170,0.3);
     color: var(--secondary);
     padding: 6px 14px;
-    border-radius: 100px;
+    border-radius: 20px;
     font-size: 13px;
     font-weight: 600;
     margin-bottom: 24px;
-    letter-spacing: 0.3px;
-  }
-  .badge-dot {
-    width: 6px; height: 6px;
-    background: var(--secondary);
-    border-radius: 50%;
-    animation: pulse 2s infinite;
-  }
-  @keyframes pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.5; transform: scale(1.5); }
   }
   .hero h1 {
-    font-size: clamp(38px, 5vw, 60px);
-    color: var(--white);
+    font-size: clamp(36px, 5vw, 60px);
+    color: white;
     margin-bottom: 20px;
     letter-spacing: -1px;
   }
-  .hero h1 .accent {
-    background: linear-gradient(135deg, #00D4AA, #0052FF);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-  .hero-desc {
+  .hero h1 span { color: var(--secondary); }
+  .hero-sub {
+    color: rgba(255,255,255,0.65);
     font-size: 18px;
-    color: rgba(255,255,255,0.7);
     margin-bottom: 36px;
-    line-height: 1.7;
-    font-weight: 400;
+    max-width: 480px;
   }
-  .hero-form {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-  }
-  .hero-form input[type="email"] {
-    flex: 1;
-    min-width: 220px;
-    padding: 14px 18px;
-    border-radius: 10px;
-    border: 1px solid rgba(255,255,255,0.15);
-    background: rgba(255,255,255,0.08);
+  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--gradient);
     color: white;
-    font-size: 15px;
-    font-family: 'Inter', sans-serif;
-    outline: none;
-    transition: border-color 0.2s;
-  }
-  .hero-form input[type="email"]::placeholder { color: rgba(255,255,255,0.4); }
-  .hero-form input[type="email"]:focus { border-color: var(--secondary); }
-  .hero-form button {
-    background: linear-gradient(135deg, var(--secondary), #00B898);
-    color: var(--dark);
     border: none;
     padding: 14px 28px;
     border-radius: 10px;
     font-weight: 700;
-    font-size: 15px;
+    font-size: 16px;
     cursor: pointer;
     font-family: 'Inter', sans-serif;
-    white-space: nowrap;
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: opacity 0.2s, transform 0.2s;
+    box-shadow: 0 4px 20px rgba(0,82,255,0.4);
   }
-  .hero-form button:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,212,170,0.4); }
-  .hero-trust {
-    margin-top: 20px;
-    font-size: 13px;
-    color: rgba(255,255,255,0.45);
-    display: flex;
-    align-items: center;
-    gap: 8px;
+  .btn-primary:hover { opacity: 0.9; transform: translateY(-2px); }
+  .btn-secondary {
+    background: rgba(255,255,255,0.08);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.15);
+    padding: 14px 28px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    transition: background 0.2s;
   }
-  .hero-trust span { color: var(--secondary); }
+  .btn-secondary:hover { background: rgba(255,255,255,0.14); }
 
-  /* HERO VISUAL */
-  .hero-visual {
-    position: relative;
-  }
+  /* HERO CARD */
   .hero-card {
     background: rgba(255,255,255,0.05);
     border: 1px solid rgba(255,255,255,0.1);
@@ -225,398 +190,266 @@
     backdrop-filter: blur(10px);
   }
   .hero-card-title {
-    font-size: 12px;
-    font-weight: 600;
     color: rgba(255,255,255,0.5);
-    letter-spacing: 1px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
     margin-bottom: 16px;
   }
-  .grant-item {
+  .match-item {
     display: flex;
     align-items: center;
     gap: 12px;
-    padding: 12px 14px;
+    padding: 12px;
+    border-radius: 10px;
+    margin-bottom: 8px;
     background: rgba(255,255,255,0.04);
     border: 1px solid rgba(255,255,255,0.06);
-    border-radius: 12px;
-    margin-bottom: 8px;
-    transition: background 0.2s;
   }
-  .grant-item:hover { background: rgba(255,255,255,0.08); }
-  .grant-logo {
-    width: 40px; height: 40px;
-    border-radius: 10px;
+  .match-icon {
+    width: 36px; height: 36px;
+    border-radius: 8px;
     display: flex; align-items: center; justify-content: center;
-    font-size: 18px;
+    font-size: 16px;
     flex-shrink: 0;
   }
-  .grant-info { flex: 1; min-width: 0; }
-  .grant-name { font-size: 13px; font-weight: 600; color: white; }
-  .grant-sub { font-size: 11px; color: rgba(255,255,255,0.4); margin-top: 2px; }
-  .grant-score {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    flex-shrink: 0;
+  .match-icon.blue { background: rgba(0,82,255,0.2); }
+  .match-icon.green { background: rgba(0,212,170,0.2); }
+  .match-icon.purple { background: rgba(120,60,255,0.2); }
+  .match-info { flex: 1; }
+  .match-name { color: white; font-size: 13px; font-weight: 600; }
+  .match-sub { color: rgba(255,255,255,0.45); font-size: 11px; }
+  .match-score {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--secondary);
   }
-  .score-bar {
-    width: 48px; height: 4px;
-    background: rgba(255,255,255,0.1);
-    border-radius: 2px;
-    overflow: hidden;
-  }
-  .score-fill { height: 100%; border-radius: 2px; background: var(--secondary); }
-  .score-num { font-size: 12px; font-weight: 700; color: var(--secondary); }
-  .hero-stat-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 8px;
-    margin-top: 16px;
-  }
-  .hero-stat {
-    background: rgba(0,82,255,0.15);
-    border: 1px solid rgba(0,82,255,0.2);
-    border-radius: 10px;
-    padding: 12px 10px;
-    text-align: center;
-  }
-  .hero-stat-val { font-size: 18px; font-weight: 800; color: white; }
-  .hero-stat-label { font-size: 10px; color: rgba(255,255,255,0.45); margin-top: 2px; }
 
-  /* LOGOS */
-  .logos {
-    background: var(--dark2);
-    padding: 36px 24px;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+  /* GRANT LANDSCAPE SECTION */
+  .landscape {
+    padding: 80px 24px;
+    background: var(--light);
   }
-  .logos-inner {
+  .landscape-inner {
     max-width: 1140px;
     margin: 0 auto;
   }
-  .logos-label {
-    text-align: center;
-    font-size: 12px;
-    font-weight: 600;
-    color: rgba(255,255,255,0.3);
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    margin-bottom: 24px;
-  }
-  .logos-row {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 40px;
-    flex-wrap: wrap;
-  }
-  .fund-logo {
-    font-size: 13px;
-    font-weight: 700;
-    color: rgba(255,255,255,0.3);
-    letter-spacing: 0.5px;
-    padding: 8px 16px;
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 8px;
-    transition: color 0.2s, border-color 0.2s;
-    white-space: nowrap;
-  }
-  .fund-logo:hover { color: rgba(255,255,255,0.6); border-color: rgba(255,255,255,0.15); }
-
-  /* SECTION BASE */
-  section { padding: 96px 24px; }
-  .section-inner { max-width: 1140px; margin: 0 auto; }
   .section-label {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
     font-size: 12px;
     font-weight: 700;
-    letter-spacing: 1.5px;
+    letter-spacing: 2px;
     text-transform: uppercase;
     color: var(--primary);
-    margin-bottom: 16px;
-  }
-  .section-label::before {
-    content: '';
-    width: 20px; height: 2px;
-    background: var(--primary);
-    border-radius: 1px;
+    margin-bottom: 12px;
   }
   .section-title {
-    font-size: clamp(28px, 4vw, 44px);
+    font-size: clamp(28px, 4vw, 42px);
     color: var(--dark);
-    margin-bottom: 16px;
-    letter-spacing: -0.5px;
+    margin-bottom: 14px;
   }
   .section-sub {
-    font-size: 17px;
     color: var(--mid);
+    font-size: 17px;
     max-width: 560px;
-    line-height: 1.7;
+    margin-bottom: 48px;
   }
-  .section-header { margin-bottom: 56px; }
-
-  /* FEATURES */
-  .features { background: var(--light); }
-  .features-grid {
+  .landscape-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 24px;
   }
-  .feature-card {
-    background: var(--white);
+  .landscape-card {
+    background: white;
     border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 32px 28px;
-    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
-    position: relative;
-    overflow: hidden;
+    border-radius: 16px;
+    padding: 28px 24px;
+    transition: box-shadow 0.2s;
   }
-  .feature-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 3px;
-    background: var(--gradient2);
-    opacity: 0;
-    transition: opacity 0.3s;
+  .landscape-card:hover { box-shadow: 0 8px 32px rgba(0,82,255,0.08); }
+  .landscape-card .lc-icon {
+    font-size: 28px;
+    margin-bottom: 12px;
   }
-  .feature-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0,82,255,0.1); border-color: rgba(0,82,255,0.15); }
-  .feature-card:hover::before { opacity: 1; }
-  .feature-icon {
-    width: 52px; height: 52px;
-    background: var(--primary-light);
-    border-radius: 14px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 24px;
-    margin-bottom: 20px;
-    transition: background 0.3s;
-  }
-  .feature-card:hover .feature-icon { background: linear-gradient(135deg, rgba(0,82,255,0.15), rgba(0,212,170,0.1)); }
-  .feature-title {
+  .landscape-card h3 {
     font-family: 'Inter', sans-serif;
-    font-size: 17px;
+    font-size: 15px;
     font-weight: 700;
     color: var(--dark);
-    margin-bottom: 10px;
+    margin-bottom: 6px;
   }
-  .feature-desc {
-    font-size: 14px;
+  .landscape-card .lc-fact {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 4px;
+    font-family: 'Inter', sans-serif;
+  }
+  .landscape-card p {
+    font-size: 13px;
     color: var(--mid);
-    line-height: 1.7;
+    line-height: 1.5;
+  }
+  .landscape-source {
+    font-size: 11px;
+    color: #aaa;
+    margin-top: 4px;
   }
 
   /* HOW IT WORKS */
-  .how { background: var(--white); }
+  .how {
+    padding: 80px 24px;
+    background: white;
+  }
+  .how-inner {
+    max-width: 1140px;
+    margin: 0 auto;
+    text-align: center;
+  }
   .steps {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 32px;
-    position: relative;
-  }
-  .steps::before {
-    content: '';
-    position: absolute;
-    top: 36px;
-    left: calc(16.66% + 16px);
-    right: calc(16.66% + 16px);
-    height: 2px;
-    background: linear-gradient(90deg, var(--primary), var(--secondary));
-    z-index: 0;
+    margin-top: 48px;
+    text-align: left;
   }
   .step {
-    text-align: center;
     position: relative;
-    z-index: 1;
+    padding: 28px;
+    background: var(--light);
+    border-radius: 16px;
+    border: 1px solid var(--border);
   }
   .step-num {
-    width: 72px; height: 72px;
-    border-radius: 50%;
+    width: 36px; height: 36px;
     background: var(--gradient);
     color: white;
-    font-size: 24px;
-    font-weight: 800;
+    border-radius: 10px;
     display: flex; align-items: center; justify-content: center;
-    margin: 0 auto 24px;
-    box-shadow: 0 8px 32px rgba(0,82,255,0.35);
-    font-family: 'Inter', sans-serif;
-    position: relative;
-    z-index: 2;
-  }
-  .step-num::after {
-    content: '';
-    position: absolute;
-    inset: -4px;
-    border-radius: 50%;
-    border: 2px solid rgba(0,82,255,0.2);
-  }
-  .step-title {
-    font-family: 'Inter', sans-serif;
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--dark);
-    margin-bottom: 12px;
-  }
-  .step-desc {
-    font-size: 14px;
-    color: var(--mid);
-    line-height: 1.7;
-  }
-  .step-emoji {
-    font-size: 28px;
-    margin-bottom: 12px;
-    display: block;
-  }
-
-  /* SOCIAL PROOF */
-  .social { background: var(--dark); padding: 96px 24px; }
-  .social .section-label { color: var(--secondary); }
-  .social .section-label::before { background: var(--secondary); }
-  .social .section-title { color: white; }
-  .social .section-sub { color: rgba(255,255,255,0.55); }
-  .stats-row {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
-    margin-bottom: 64px;
-  }
-  .stat-card {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 20px;
-    padding: 32px 24px;
-    text-align: center;
-    transition: background 0.3s;
-  }
-  .stat-card:hover { background: rgba(0,82,255,0.1); border-color: rgba(0,82,255,0.2); }
-  .stat-val {
-    font-family: 'Playfair Display', serif;
-    font-size: 42px;
     font-weight: 800;
-    background: linear-gradient(135deg, var(--white), rgba(255,255,255,0.7));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    line-height: 1.1;
-    margin-bottom: 8px;
-  }
-  .stat-val span { color: var(--secondary); -webkit-text-fill-color: var(--secondary); }
-  .stat-label { font-size: 13px; color: rgba(255,255,255,0.45); font-weight: 500; }
-  .testimonials {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-  }
-  .testimonial {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 20px;
-    padding: 28px;
-    transition: transform 0.3s, background 0.3s;
-  }
-  .testimonial:hover { transform: translateY(-4px); background: rgba(255,255,255,0.07); }
-  .testimonial-stars {
-    color: var(--secondary);
-    font-size: 14px;
+    font-size: 15px;
     margin-bottom: 16px;
-    letter-spacing: 2px;
+    font-family: 'Inter', sans-serif;
   }
-  .testimonial-text {
-    font-size: 14px;
-    color: rgba(255,255,255,0.7);
-    line-height: 1.7;
-    margin-bottom: 20px;
-    font-style: italic;
+  .step h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--dark);
   }
-  .testimonial-author {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+  .step p { font-size: 14px; color: var(--mid); }
+
+  /* FEATURES */
+  .features {
+    padding: 80px 24px;
+    background: var(--dark);
   }
-  .author-avatar {
-    width: 40px; height: 40px;
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
+  .features-inner {
+    max-width: 1140px;
+    margin: 0 auto;
+  }
+  .features-header { text-align: center; margin-bottom: 48px; }
+  .features-header .section-title { color: white; }
+  .features-header .section-sub { color: rgba(255,255,255,0.55); margin: 0 auto; }
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+  }
+  .feature-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 28px;
+    transition: border-color 0.2s;
+  }
+  .feature-card:hover { border-color: rgba(0,82,255,0.4); }
+  .feature-icon {
+    font-size: 28px;
+    margin-bottom: 16px;
+  }
+  .feature-card h3 {
+    font-family: 'Inter', sans-serif;
     font-size: 16px;
     font-weight: 700;
     color: white;
-    flex-shrink: 0;
+    margin-bottom: 10px;
   }
-  .author-name { font-size: 13px; font-weight: 700; color: white; }
-  .author-role { font-size: 12px; color: rgba(255,255,255,0.4); margin-top: 2px; }
+  .feature-card p { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.6; }
 
-  /* CTA BOTTOM */
-  .cta-bottom {
-    background: var(--white);
-    padding: 96px 24px;
+  /* PROGRAMS */
+  .programs {
+    padding: 80px 24px;
+    background: var(--light);
+  }
+  .programs-inner {
+    max-width: 1140px;
+    margin: 0 auto;
+  }
+  .programs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-top: 40px;
+  }
+  .program-pill {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--dark);
+    transition: box-shadow 0.2s;
+  }
+  .program-pill:hover { box-shadow: 0 4px 16px rgba(0,82,255,0.1); }
+  .program-pill .pp-icon { font-size: 20px; }
+
+  /* EARLY ACCESS */
+  .early {
+    padding: 80px 24px;
+    background: white;
+  }
+  .early-inner {
+    max-width: 680px;
+    margin: 0 auto;
     text-align: center;
   }
-  .cta-box {
-    max-width: 640px;
-    margin: 0 auto;
-    background: var(--dark);
-    border-radius: 28px;
-    padding: 60px 48px;
-    position: relative;
-    overflow: hidden;
-  }
-  .cta-box::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(0,82,255,0.3), transparent);
-    pointer-events: none;
-  }
-  .cta-box-label {
+  .early-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--primary-light);
+    color: var(--primary);
+    padding: 6px 14px;
+    border-radius: 20px;
     font-size: 12px;
     font-weight: 700;
-    letter-spacing: 1.5px;
+    letter-spacing: 1px;
     text-transform: uppercase;
-    color: var(--secondary);
-    margin-bottom: 16px;
-    position: relative;
-    z-index: 1;
+    margin-bottom: 20px;
   }
-  .cta-box h2 {
-    font-size: clamp(26px, 4vw, 38px);
-    color: white;
-    margin-bottom: 16px;
-    position: relative;
-    z-index: 1;
-  }
-  .cta-box p {
-    font-size: 15px;
-    color: rgba(255,255,255,0.55);
-    margin-bottom: 32px;
-    position: relative;
-    z-index: 1;
-    line-height: 1.7;
-  }
-  .cta-form {
-    display: flex;
-    gap: 10px;
-    position: relative;
-    z-index: 1;
-    flex-wrap: wrap;
-  }
-  .cta-form input[type="email"] {
+  .early h2 { font-size: clamp(28px, 4vw, 40px); margin-bottom: 14px; color: var(--dark); }
+  .early p { color: var(--mid); font-size: 17px; margin-bottom: 32px; }
+  .signup-form { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+  .signup-form input {
     flex: 1;
-    min-width: 200px;
+    min-width: 220px;
     padding: 14px 18px;
+    border: 1.5px solid var(--border);
     border-radius: 10px;
-    border: 1px solid rgba(255,255,255,0.15);
-    background: rgba(255,255,255,0.08);
-    color: white;
     font-size: 15px;
     font-family: 'Inter', sans-serif;
     outline: none;
     transition: border-color 0.2s;
   }
-  .cta-form input[type="email"]::placeholder { color: rgba(255,255,255,0.35); }
-  .cta-form input[type="email"]:focus { border-color: var(--secondary); }
-  .cta-form button {
-    background: var(--primary);
+  .signup-form input:focus { border-color: var(--primary); }
+  .signup-form button {
+    background: var(--gradient);
     color: white;
     border: none;
     padding: 14px 28px;
@@ -626,88 +459,62 @@
     cursor: pointer;
     font-family: 'Inter', sans-serif;
     white-space: nowrap;
-    transition: background 0.2s, transform 0.2s;
+    transition: opacity 0.2s;
   }
-  .cta-form button:hover { background: var(--primary-dark); transform: translateY(-2px); }
+  .signup-form button:hover { opacity: 0.9; }
+  .signup-note { font-size: 12px; color: #aaa; margin-top: 12px; }
+  #signup-success { display: none; color: var(--secondary-dark); font-weight: 600; margin-top: 12px; }
+
+  /* FAQ */
+  .faq {
+    padding: 80px 24px;
+    background: var(--light);
+  }
+  .faq-inner {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .faq-inner .section-title { text-align: center; margin-bottom: 8px; }
+  .faq-inner .section-sub { text-align: center; margin: 0 auto 40px; }
+  .faq-item {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: white;
+    margin-bottom: 12px;
+    overflow: hidden;
+  }
+  .faq-q {
+    padding: 18px 22px;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
+  .faq-q:hover { background: var(--light); }
+  .faq-arrow { font-size: 18px; color: var(--primary); transition: transform 0.2s; flex-shrink: 0; }
+  .faq-a {
+    display: none;
+    padding: 0 22px 18px;
+    font-size: 14px;
+    color: var(--mid);
+    line-height: 1.7;
+  }
+  .faq-item.open .faq-a { display: block; }
+  .faq-item.open .faq-arrow { transform: rotate(180deg); }
 
   /* FOOTER */
   footer {
-    background: var(--dark2);
-    border-top: 1px solid rgba(255,255,255,0.05);
-    padding: 40px 24px;
-  }
-  .footer-inner {
-    max-width: 1140px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 16px;
-  }
-  .footer-logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    text-decoration: none;
-  }
-  .footer-logo-icon {
-    width: 30px; height: 30px;
-    background: var(--gradient);
-    border-radius: 8px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 15px;
-  }
-  .footer-logo-text {
-    font-weight: 800;
-    font-size: 16px;
-    color: white;
-  }
-  .footer-copy {
-    font-size: 13px;
-    color: rgba(255,255,255,0.35);
+    background: var(--dark);
+    color: rgba(255,255,255,0.45);
     text-align: center;
-  }
-  .footer-copy a {
-    color: rgba(255,255,255,0.5);
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.2s;
-  }
-  .footer-copy a:hover { color: var(--secondary); }
-  .footer-links {
-    display: flex;
-    gap: 20px;
-  }
-  .footer-links a {
+    padding: 32px 24px;
     font-size: 13px;
-    color: rgba(255,255,255,0.35);
-    text-decoration: none;
-    transition: color 0.2s;
   }
-  .footer-links a:hover { color: white; }
-
-  /* RESPONSIVE */
-  @media (max-width: 900px) {
-    .hero-inner { grid-template-columns: 1fr; gap: 48px; }
-    .hero-visual { order: -1; }
-    .features-grid { grid-template-columns: repeat(2, 1fr); }
-    .stats-row { grid-template-columns: repeat(2, 1fr); }
-    .testimonials { grid-template-columns: 1fr; }
-    .steps { grid-template-columns: 1fr; gap: 48px; }
-    .steps::before { display: none; }
-  }
-  @media (max-width: 600px) {
-    .features-grid { grid-template-columns: 1fr; }
-    .stats-row { grid-template-columns: repeat(2, 1fr); }
-    .logos-row { gap: 12px; }
-    .hero-stat-row { grid-template-columns: 1fr 1fr; }
-    .cta-box { padding: 40px 24px; }
-    .footer-inner { flex-direction: column; text-align: center; }
-    .footer-links { justify-content: center; }
-    section { padding: 64px 16px; }
-    .social { padding: 64px 16px; }
-  }
+  footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
+  footer a:hover { color: white; }
 </style>
 </head>
 <body>
@@ -715,11 +522,11 @@
 <!-- NAV -->
 <nav>
   <div class="nav-inner">
-    <a href="#" class="logo">
-      <div class="logo-icon">🛫</div>
+    <a class="logo" href="#">
+      <div class="logo-icon">🧭</div>
       <span class="logo-text">Grant<span>Pilot</span></span>
     </a>
-    <a href="#signup" class="nav-cta">Get Early Access</a>
+    <a class="nav-cta" href="#early-access">Get Early Access</a>
   </div>
 </nav>
 
@@ -728,279 +535,271 @@
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
   <div class="hero-inner">
-    <div class="hero-left">
-      <div class="hero-badge">
-        <span class="badge-dot"></span>
-        Built in Finland · Trusted across Europe
-      </div>
-      <h1>AI that <span class="accent">wins you</span> EU grants</h1>
-      <p class="hero-desc">Stop losing weeks to grant applications. GrantPilot scans 2,000+ EU and Nordic funding programs, matches your startup, and drafts winning applications — all powered by AI trained on successful European grants.</p>
-      <form class="hero-form" id="hero-form">
-        <input type="email" placeholder="your@startup.com" required>
-        <button type="submit">Get Early Access →</button>
-      </form>
-      <div class="hero-trust">
-        <span>✓</span> Free to start &nbsp;·&nbsp; <span>✓</span> No credit card &nbsp;·&nbsp; <span>✓</span> GDPR compliant
+    <div>
+      <div class="hero-badge">🇪🇺 Built for EU & Nordic founders</div>
+      <h1>Find and win <span>EU grants</span> with AI</h1>
+      <p class="hero-sub">GrantPilot scans thousands of EU and Nordic funding programs, matches them to your company, and helps you write compelling applications — in days, not months.</p>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="document.getElementById('early-access').scrollIntoView({behavior:'smooth'})">Get Early Access</button>
+        <button class="btn-secondary" onclick="document.getElementById('how').scrollIntoView({behavior:'smooth'})">See How It Works</button>
       </div>
     </div>
-    <div class="hero-visual">
-      <div class="hero-card">
-        <div class="hero-card-title">🎯 Top Grant Matches — Your Profile</div>
-        <div class="grant-item">
-          <div class="grant-logo" style="background:rgba(0,82,255,0.15);">🇪🇺</div>
-          <div class="grant-info">
-            <div class="grant-name">EIC Accelerator</div>
-            <div class="grant-sub">Horizon Europe · Up to €2.5M</div>
-          </div>
-          <div class="grant-score">
-            <div class="score-bar"><div class="score-fill" style="width:94%"></div></div>
-            <span class="score-num">94%</span>
-          </div>
+    <div class="hero-card">
+      <div class="hero-card-title">🔍 Grant matches for your profile</div>
+      <div class="match-item">
+        <div class="match-icon blue">🌍</div>
+        <div class="match-info">
+          <div class="match-name">EIC Accelerator</div>
+          <div class="match-sub">Up to €2.5M grant + €15M equity</div>
         </div>
-        <div class="grant-item">
-          <div class="grant-logo" style="background:rgba(0,212,170,0.15);">🇫🇮</div>
-          <div class="grant-info">
-            <div class="grant-name">Business Finland R&D</div>
-            <div class="grant-sub">Business Finland · Up to €1M</div>
-          </div>
-          <div class="grant-score">
-            <div class="score-bar"><div class="score-fill" style="width:88%"></div></div>
-            <span class="score-num">88%</span>
-          </div>
+        <div class="match-score">94%</div>
+      </div>
+      <div class="match-item">
+        <div class="match-icon green">🇫🇮</div>
+        <div class="match-info">
+          <div class="match-name">Business Finland R&D</div>
+          <div class="match-sub">Up to €1M for innovative SMEs</div>
         </div>
-        <div class="grant-item">
-          <div class="grant-logo" style="background:rgba(0,82,255,0.1);">🌍</div>
-          <div class="grant-info">
-            <div class="grant-name">Nordic Innovation Fund</div>
-            <div class="grant-sub">Nordic Council · Up to €500K</div>
-          </div>
-          <div class="grant-score">
-            <div class="score-bar"><div class="score-fill" style="width:81%"></div></div>
-            <span class="score-num">81%</span>
-          </div>
+        <div class="match-score">88%</div>
+      </div>
+      <div class="match-item">
+        <div class="match-icon purple">⚡</div>
+        <div class="match-info">
+          <div class="match-name">Horizon Europe KDT</div>
+          <div class="match-sub">Collaborative R&D funding</div>
         </div>
-        <div class="hero-stat-row">
-          <div class="hero-stat">
-            <div class="hero-stat-val">2K+</div>
-            <div class="hero-stat-label">Programs</div>
-          </div>
-          <div class="hero-stat">
-            <div class="hero-stat-val">€4.2B</div>
-            <div class="hero-stat-label">Available</div>
-          </div>
-          <div class="hero-stat">
-            <div class="hero-stat-val">3 days</div>
-            <div class="hero-stat-label">Avg. Draft</div>
-          </div>
-        </div>
+        <div class="match-score">76%</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- LOGOS -->
-<div class="logos">
-  <div class="logos-inner">
-    <div class="logos-label">Covering major EU & Nordic funding programs</div>
-    <div class="logos-row">
-      <div class="fund-logo">Horizon Europe</div>
-      <div class="fund-logo">EIC Accelerator</div>
-      <div class="fund-logo">Business Finland</div>
-      <div class="fund-logo">Nordic Innovation</div>
-      <div class="fund-logo">InvestEU</div>
-      <div class="fund-logo">ERDF / ESF+</div>
-      <div class="fund-logo">Eurostars</div>
-    </div>
-  </div>
-</div>
-
-<!-- FEATURES -->
-<section class="features">
-  <div class="section-inner">
-    <div class="section-header">
-      <div class="section-label">Platform Features</div>
-      <h2 class="section-title">Everything you need to win EU grants</h2>
-      <p class="section-sub">From discovering the right opportunities to submitting a polished application — GrantPilot handles the heavy lifting so you can focus on your business.</p>
-    </div>
-    <div class="features-grid">
-      <div class="feature-card">
-        <div class="feature-icon">🎯</div>
-        <div class="feature-title">Smart Grant Matching</div>
-        <p class="feature-desc">AI scans 2,000+ active EU and Nordic funding programs and instantly matches your company profile to the grants you're most likely to qualify for, ranked by fit score and deadline urgency.</p>
+<!-- GRANT LANDSCAPE (real public data) -->
+<section class="landscape">
+  <div class="landscape-inner">
+    <div class="section-label">The EU Funding Landscape</div>
+    <h2 class="section-title">There is real money available — most founders never apply</h2>
+    <p class="section-sub">Public facts about EU and Nordic grant programs that GrantPilot helps you access.</p>
+    <div class="landscape-grid">
+      <div class="landscape-card">
+        <div class="lc-icon">🌍</div>
+        <h3>Horizon Europe</h3>
+        <div class="lc-fact">€95.5B</div>
+        <p>Total EU research & innovation budget, 2021–2027.</p>
+        <div class="landscape-source">Source: European Commission</div>
       </div>
-      <div class="feature-card">
-        <div class="feature-icon">✍️</div>
-        <div class="feature-title">AI Application Drafter</div>
-        <p class="feature-desc">Generate full grant application drafts section by section — from executive summaries and impact assessments to work packages and budget tables — using AI trained on successful European grant proposals.</p>
+      <div class="landscape-card">
+        <div class="lc-icon">🚀</div>
+        <h3>EIC Accelerator</h3>
+        <div class="lc-fact">€2.5M</div>
+        <p>Maximum non-dilutive grant per company, plus up to €15M equity investment.</p>
+        <div class="landscape-source">Source: EIC, 2024</div>
       </div>
-      <div class="feature-card">
-        <div class="feature-icon">📊</div>
-        <div class="feature-title">Evaluation Score Predictor</div>
-        <p class="feature-desc">Run your draft through our AI evaluator that scores your application against the actual criteria used by grant reviewers, with specific suggestions to improve weak sections before you submit.</p>
+      <div class="landscape-card">
+        <div class="lc-icon">🇫🇮</div>
+        <h3>Business Finland</h3>
+        <div class="lc-fact">€800M+</div>
+        <p>Annual funding budget for Finnish companies in R&D, growth, and internationalisation.</p>
+        <div class="landscape-source">Source: Business Finland annual report</div>
       </div>
-      <div class="feature-card">
-        <div class="feature-icon">💶</div>
-        <div class="feature-title">Budget & Work Package Builder</div>
-        <p class="feature-desc">Automatically generate compliant budget breakdowns and work package structures that meet the specific formatting and cost-eligibility rules of each funding program.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">📅</div>
-        <div class="feature-title">Deadline & Pipeline Tracker</div>
-        <p class="feature-desc">Manage all your grant opportunities in one dashboard with deadline alerts, application status tracking, and team collaboration tools so nothing falls through the cracks.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">🤝</div>
-        <div class="feature-title">Consortium Finder</div>
-        <p class="feature-desc">For multi-partner grants like Horizon Europe, discover and connect with potential consortium partners across Europe based on complementary expertise, geography, and past grant success.</p>
+      <div class="landscape-card">
+        <div class="lc-icon">🌱</div>
+        <h3>Application success rates</h3>
+        <div class="lc-fact">~14%</div>
+        <p>Average EIC Accelerator success rate — preparation quality is the leading differentiator.</p>
+        <div class="landscape-source">Source: EIC statistics, 2023</div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- HOW IT WORKS -->
-<section class="how">
-  <div class="section-inner">
-    <div class="section-header" style="text-align:center; max-width:600px; margin:0 auto 56px;">
-      <div class="section-label" style="justify-content:center;">How It Works</div>
-      <h2 class="section-title">From signup to submission in days, not weeks</h2>
-      <p class="section-sub" style="margin:0 auto;">No grant consultants. No weeks of research. Just your company profile and our AI engine working around the clock.</p>
-    </div>
+<section class="how" id="how">
+  <div class="how-inner">
+    <div class="section-label">How It Works</div>
+    <h2 class="section-title">From profile to submission in days</h2>
     <div class="steps">
       <div class="step">
         <div class="step-num">1</div>
-        <span class="step-emoji">🏢</span>
-        <div class="step-title">Build Your Company Profile</div>
-        <p class="step-desc">Tell GrantPilot about your company — sector, stage, team size, technology, and goals. Our AI creates a smart profile that it matches against thousands of funding programs in real time.</p>
+        <h3>Build your company profile</h3>
+        <p>Tell GrantPilot about your sector, stage, technology, and goals. This takes about 10 minutes.</p>
       </div>
       <div class="step">
         <div class="step-num">2</div>
-        <span class="step-emoji">🤖</span>
-        <div class="step-title">Get Matched & Start Drafting</div>
-        <p class="step-desc">Review your personalised grant matches ranked by fit score and deadline. Choose your target grant and let the AI drafter generate your application section by section, auto-filling your data.</p>
+        <h3>Get matched to relevant grants</h3>
+        <p>Our AI scans EU, Nordic, and national programs and ranks the ones most likely to fit your company — with deadlines and eligibility notes.</p>
       </div>
       <div class="step">
         <div class="step-num">3</div>
-        <span class="step-emoji">🚀</span>
-        <div class="step-title">Score, Refine & Submit</div>
-        <p class="step-desc">Run your draft through the Evaluation Score Predictor, act on AI suggestions to strengthen weak sections, then export a fully formatted, submission-ready application package.</p>
+        <h3>Draft your application with AI</h3>
+        <p>GrantPilot's writing engine helps you complete each section — impact narrative, budget structure, and problem statement — using your own company data.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h3>Score and iterate before submitting</h3>
+        <p>See how your draft scores against the official evaluation criteria, fix weak sections, and submit with confidence.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SOCIAL PROOF -->
-<section class="social">
-  <div class="section-inner">
-    <div class="section-header">
-      <div class="section-label">Results That Speak</div>
-      <h2 class="section-title">Turning EU bureaucracy into growth capital</h2>
-      <p class="section-sub">European startups and SMEs use GrantPilot to unlock funding that was previously only accessible through expensive consultants.</p>
+<!-- FEATURES -->
+<section class="features">
+  <div class="features-inner">
+    <div class="features-header">
+      <div class="section-label" style="color:var(--secondary)">What's Inside</div>
+      <h2 class="section-title">Everything a grant application needs</h2>
+      <p class="section-sub">GrantPilot handles the hard parts of EU grant applications so founders can stay focused on building.</p>
     </div>
-    <div class="stats-row">
-      <div class="stat-card">
-        <div class="stat-val">2,000<span>+</span></div>
-        <div class="stat-label">Grant programs monitored</div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🔎</div>
+        <h3>Continuous grant scanning</h3>
+        <p>Thousands of programs across Horizon Europe, EIC, Business Finland, Nordic Innovation Fund, and more — updated automatically.</p>
       </div>
-      <div class="stat-card">
-        <div class="stat-val">€4.2<span>B</span></div>
-        <div class="stat-val" style="font-size:14px; margin-top:-8px; -webkit-text-fill-color:rgba(255,255,255,0.5); font-family:'Inter',sans-serif; font-weight:500;"></div>
-        <div class="stat-label">Total funding tracked annually</div>
+      <div class="feature-card">
+        <div class="feature-icon">🎯</div>
+        <h3>AI-powered matching</h3>
+        <p>We match programs to your sector, stage, and geography — not just keywords — and explain why each grant fits your profile.</p>
       </div>
-      <div class="stat-card">
-        <div class="stat-val">3<span>×</span></div>
-        <div class="stat-label">Faster than traditional process</div>
+      <div class="feature-card">
+        <div class="feature-icon">✍️</div>
+        <h3>Section-by-section drafting</h3>
+        <p>Generate impact narratives, problem statements, work packages, and budget summaries using your own company data as the foundation.</p>
       </div>
-      <div class="stat-card">
-        <div class="stat-val">90<span>%</span></div>
-        <div class="stat-label">Less cost vs. grant consultants</div>
+      <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <h3>Evaluation scoring</h3>
+        <p>See how your draft is likely to score against official criteria before you submit — and get targeted suggestions to strengthen weak areas.</p>
       </div>
-    </div>
-    <div class="testimonials">
-      <div class="testimonial">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">"GrantPilot found us a Business Finland grant we didn't even know existed and had a draft ready in two days. We submitted and got funded. It would have cost us €15K in consultant fees the old way."</p>
-        <div class="testimonial-author">
-          <div class="author-avatar" style="background:linear-gradient(135deg,#0052FF,#00D4AA);">ML</div>
-          <div>
-            <div class="author-name">Mia Leinonen</div>
-            <div class="author-role">CEO, HealthTech Startup · Helsinki</div>
-          </div>
-        </div>
+      <div class="feature-card">
+        <div class="feature-icon">🗂️</div>
+        <h3>Auto-filled company data</h3>
+        <p>Your profile, financials, and past applications pre-fill new applications — no re-entering the same information every time.</p>
       </div>
-      <div class="testimonial">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">"The Evaluation Score Predictor was a game changer. It flagged three weak sections before we submitted our EIC Accelerator application. We scored 87/100 from reviewers. Incredible tool."</p>
-        <div class="testimonial-author">
-          <div class="author-avatar" style="background:linear-gradient(135deg,#7C3AED,#0052FF);">JR</div>
-          <div>
-            <div class="author-name">Jonas Rask</div>
-            <div class="author-role">CTO, DeepTech Ventures · Copenhagen</div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">"As a 5-person cleantech startup, we had no capacity to navigate Horizon Europe alone. GrantPilot matched us with the right call, found consortium partners, and drafted our proposal. We got the grant."</p>
-        <div class="testimonial-author">
-          <div class="author-avatar" style="background:linear-gradient(135deg,#00D4AA,#0052FF);">AV</div>
-          <div>
-            <div class="author-name">Aino Virtanen</div>
-            <div class="author-role">Founder, CleanTech Startup · Tampere</div>
-          </div>
-        </div>
+      <div class="feature-card">
+        <div class="feature-icon">🗓️</div>
+        <h3>Deadline tracking</h3>
+        <p>Never miss a call. GrantPilot tracks open deadlines across all your matched programs and alerts you well in advance.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CTA BOTTOM -->
-<section class="cta-bottom" id="signup">
-  <div class="cta-box">
-    <div class="cta-box-label">Start for free today</div>
-    <h2>Ready to win your first EU grant?</h2>
-    <p>Join hundreds of European founders already using GrantPilot to unlock non-dilutive funding. No consultants. No complexity. Just results.</p>
-    <form class="cta-form" id="cta-form">
-      <input type="email" placeholder="Enter your work email" required>
-      <button type="submit">Get Early Access →</button>
-    </form>
+<!-- GRANT PROGRAMS -->
+<section class="programs">
+  <div class="programs-inner">
+    <div class="section-label">Covered Programs</div>
+    <h2 class="section-title">Programs we track</h2>
+    <p class="section-sub" style="color:var(--mid);font-size:17px;margin-bottom:8px;">A sample of the EU and Nordic funding sources GrantPilot monitors.</p>
+    <div class="programs-grid">
+      <div class="program-pill"><span class="pp-icon">🌍</span> Horizon Europe</div>
+      <div class="program-pill"><span class="pp-icon">🚀</span> EIC Accelerator</div>
+      <div class="program-pill"><span class="pp-icon">🔬</span> EIC Pathfinder</div>
+      <div class="program-pill"><span class="pp-icon">🇫🇮</span> Business Finland</div>
+      <div class="program-pill"><span class="pp-icon">🌱</span> Nordic Innovation</div>
+      <div class="program-pill"><span class="pp-icon">🏭</span> Eurostars</div>
+      <div class="program-pill"><span class="pp-icon">⚡</span> InvestEU</div>
+      <div class="program-pill"><span class="pp-icon">🌊</span> LIFE Programme</div>
+      <div class="program-pill"><span class="pp-icon">🔗</span> Digital Europe</div>
+      <div class="program-pill"><span class="pp-icon">🏗️</span> Interreg</div>
+    </div>
+  </div>
+</section>
+
+<!-- EARLY ACCESS -->
+<section class="early" id="early-access">
+  <div class="early-inner">
+    <div class="early-badge">🛠 Early Access</div>
+    <h2>Be among the first founders on GrantPilot</h2>
+    <p>We're onboarding a small group of early-access companies. Leave your email and we'll reach out when your spot is ready.</p>
+    <div class="signup-form">
+      <input type="email" id="ea-email" placeholder="your@company.com" />
+      <button onclick="joinWaitlist()">Request Access</button>
+    </div>
+    <div class="signup-note">No spam. No commitment. Just an early invite when we're ready for you.</div>
+    <div id="signup-success">✅ You're on the list — we'll be in touch soon!</div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="faq-inner">
+    <div class="section-label" style="text-align:center">FAQ</div>
+    <h2 class="section-title">Common questions</h2>
+    <p class="section-sub">Answers to what EU grant applicants ask most.</p>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        Do I need to be an expert in EU grants to use GrantPilot?
+        <span class="faq-arrow">▾</span>
+      </div>
+      <div class="faq-a">No. GrantPilot is designed for founders, not grant consultants. The platform guides you through each step — from finding the right program to writing a complete draft — without assuming prior knowledge of EU funding processes.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        Which countries and programs does GrantPilot cover?
+        <span class="faq-arrow">▾</span>
+      </div>
+      <div class="faq-a">GrantPilot focuses on EU-wide programs (Horizon Europe, EIC, InvestEU, LIFE, Digital Europe) and Nordic national programs including Business Finland, Nordic Innovation Fund, and others. Coverage expands as new programs are added.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        Does GrantPilot guarantee I'll win a grant?
+        <span class="faq-arrow">▾</span>
+      </div>
+      <div class="faq-a">No — and you should be sceptical of any service that claims otherwise. EU grant competitions are selective by design. GrantPilot helps you find the right programs, write a stronger application, and avoid common mistakes — but the outcome depends on your company's merit and the competition in each call.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        How is GrantPilot different from hiring a grant consultant?
+        <span class="faq-arrow">▾</span>
+      </div>
+      <div class="faq-a">Grant consultants typically charge €5,000–€30,000+ per application and work on your behalf. GrantPilot puts the tools in your hands at a fraction of the cost — you remain in control of the content, and the AI handles the heavy lifting of research and drafting.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        When can I start using GrantPilot?
+        <span class="faq-arrow">▾</span>
+      </div>
+      <div class="faq-a">GrantPilot is currently in early access. Leave your email above and we'll invite you as soon as your spot is available. Early-access users will have direct input into the product roadmap.</div>
+    </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-inner">
-    <a href="#" class="footer-logo">
-      <div class="footer-logo-icon">🛫</div>
-      <span class="footer-logo-text">GrantPilot</span>
-    </a>
-    <div class="footer-copy">
-      © <span class="year"></span> GrantPilot. All rights reserved. Built in Finland 🇫🇮 &nbsp;·&nbsp;
-      Powered by <a href="https://madmantra.com" target="_blank" rel="noopener">MadMantra</a>
-    </div>
-    <div class="footer-links">
-      <a href="#">Privacy</a>
-      <a href="#">Terms</a>
-      <a href="#">Contact</a>
-    </div>
-  </div>
+  <p>© <span class="year"></span> GrantPilot. Built in Finland. 🇫🇮 &nbsp;|&nbsp; <a href="mailto:grantpilot@madmantra.app">grantpilot@madmantra.app</a></p>
 </footer>
 
 <script>
-  document.querySelectorAll('form').forEach(function(form) {
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      var email = form.querySelector('input[type="email"]').value;
-      fetch('https://api.madmantra.app/api/landing/grantpilot/signup', {
+  document.querySelectorAll('.year').forEach(e => e.textContent = new Date().getFullYear());
+
+  function toggleFaq(el) {
+    const item = el.closest('.faq-item');
+    item.classList.toggle('open');
+  }
+
+  async function joinWaitlist() {
+    const email = document.getElementById('ea-email').value.trim();
+    if (!email || !email.includes('@')) { alert('Please enter a valid email address.'); return; }
+    try {
+      await fetch('https://api.madmantra.app/api/landing/grantpilot/signup', {
         method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({email: email})
-      }).then(function() {
-        form.innerHTML = '<p style="padding:12px;color:green;font-weight:600">Thanks! We will be in touch.</p>';
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email })
       });
-    });
-  });
+      document.getElementById('signup-success').style.display = 'block';
+      document.getElementById('ea-email').value = '';
+    } catch(e) {
+      alert('Something went wrong — please try again.');
+    }
+  }
 </script>
-<script>document.querySelectorAll('.year').forEach(e=>e.textContent=new Date().getFullYear())</script>
 <!-- characterization-harness-marker -->
 </body>
 </html>
