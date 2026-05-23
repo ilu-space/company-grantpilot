@@ -121,11 +121,10 @@
     padding: 80px 24px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 60px;
+    gap: 80px;
     align-items: center;
   }
-  @media(max-width:768px){ .hero-inner { grid-template-columns: 1fr; gap: 40px; } }
-
+  @media(max-width:768px){.hero-inner{grid-template-columns:1fr;gap:40px;}}
   .hero-badge {
     display: inline-flex;
     align-items: center;
@@ -134,387 +133,377 @@
     border: 1px solid rgba(0,212,170,0.3);
     color: var(--secondary);
     padding: 6px 14px;
-    border-radius: 20px;
+    border-radius: 100px;
     font-size: 13px;
     font-weight: 600;
     margin-bottom: 24px;
   }
   .hero h1 {
-    font-size: clamp(36px, 5vw, 60px);
+    font-size: clamp(36px, 5vw, 64px);
     color: white;
-    margin-bottom: 20px;
-    letter-spacing: -1px;
+    margin-bottom: 24px;
+    font-weight: 800;
   }
-  .hero h1 span { color: var(--secondary); }
-  .hero-sub {
-    color: rgba(255,255,255,0.65);
+  .hero h1 em { font-style: normal; color: var(--secondary); }
+  .hero p {
     font-size: 18px;
-    margin-bottom: 36px;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 40px;
     max-width: 480px;
   }
-  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+  .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
   .btn-primary {
     background: var(--gradient);
     color: white;
     border: none;
-    padding: 14px 28px;
+    padding: 16px 32px;
     border-radius: 10px;
     font-weight: 700;
     font-size: 16px;
     cursor: pointer;
     font-family: 'Inter', sans-serif;
-    transition: opacity 0.2s, transform 0.2s;
-    box-shadow: 0 4px 20px rgba(0,82,255,0.4);
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 24px rgba(0,82,255,0.4);
   }
-  .btn-primary:hover { opacity: 0.9; transform: translateY(-2px); }
-  .btn-secondary {
-    background: rgba(255,255,255,0.08);
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,82,255,0.5); }
+  .btn-outline {
+    background: transparent;
     color: white;
-    border: 1px solid rgba(255,255,255,0.15);
-    padding: 14px 28px;
+    border: 1px solid rgba(255,255,255,0.25);
+    padding: 16px 32px;
     border-radius: 10px;
     font-weight: 600;
     font-size: 16px;
     cursor: pointer;
     font-family: 'Inter', sans-serif;
-    transition: background 0.2s;
+    transition: border-color 0.2s, background 0.2s;
   }
-  .btn-secondary:hover { background: rgba(255,255,255,0.14); }
+  .btn-outline:hover { border-color: white; background: rgba(255,255,255,0.05); }
 
   /* HERO CARD */
   .hero-card {
     background: rgba(255,255,255,0.05);
     border: 1px solid rgba(255,255,255,0.1);
     border-radius: 20px;
-    padding: 28px;
+    padding: 32px;
     backdrop-filter: blur(10px);
   }
-  .hero-card-title {
-    color: rgba(255,255,255,0.5);
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    margin-bottom: 16px;
-  }
-  .match-item {
+  .hero-card-header {
     display: flex;
     align-items: center;
-    gap: 12px;
-    padding: 12px;
-    border-radius: 10px;
-    margin-bottom: 8px;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.06);
-  }
-  .match-icon {
-    width: 36px; height: 36px;
-    border-radius: 8px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 16px;
-    flex-shrink: 0;
-  }
-  .match-icon.blue { background: rgba(0,82,255,0.2); }
-  .match-icon.green { background: rgba(0,212,170,0.2); }
-  .match-icon.purple { background: rgba(120,60,255,0.2); }
-  .match-info { flex: 1; }
-  .match-name { color: white; font-size: 13px; font-weight: 600; }
-  .match-sub { color: rgba(255,255,255,0.45); font-size: 11px; }
-  .match-score {
+    gap: 10px;
+    margin-bottom: 20px;
     font-size: 13px;
-    font-weight: 700;
-    color: var(--secondary);
+    color: rgba(255,255,255,0.5);
+  }
+  .dot { width: 8px; height: 8px; border-radius: 50%; }
+  .dot-green { background: #00D4AA; }
+  .dot-yellow { background: #FFB800; }
+  .dot-red { background: #FF4757; }
+  .grant-item {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .grant-item:last-child { margin-bottom: 0; }
+  .grant-name { font-size: 14px; font-weight: 600; color: white; }
+  .grant-amount { font-size: 13px; color: var(--secondary); font-weight: 700; }
+  .grant-match {
+    font-size: 11px;
+    color: rgba(255,255,255,0.5);
+    background: rgba(0,212,170,0.1);
+    padding: 3px 8px;
+    border-radius: 100px;
   }
 
-  /* GRANT LANDSCAPE SECTION */
-  .landscape {
-    padding: 80px 24px;
-    background: var(--light);
-  }
-  .landscape-inner {
-    max-width: 1140px;
-    margin: 0 auto;
-  }
+  /* SECTIONS */
+  section { padding: 100px 24px; }
+  .section-inner { max-width: 1140px; margin: 0 auto; }
   .section-label {
     font-size: 12px;
     font-weight: 700;
     letter-spacing: 2px;
     text-transform: uppercase;
     color: var(--primary);
-    margin-bottom: 12px;
+    margin-bottom: 16px;
   }
   .section-title {
-    font-size: clamp(28px, 4vw, 42px);
+    font-size: clamp(28px, 4vw, 48px);
+    margin-bottom: 20px;
     color: var(--dark);
-    margin-bottom: 14px;
   }
   .section-sub {
+    font-size: 18px;
     color: var(--mid);
-    font-size: 17px;
-    max-width: 560px;
-    margin-bottom: 48px;
-  }
-  .landscape-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 24px;
-  }
-  .landscape-card {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 28px 24px;
-    transition: box-shadow 0.2s;
-  }
-  .landscape-card:hover { box-shadow: 0 8px 32px rgba(0,82,255,0.08); }
-  .landscape-card .lc-icon {
-    font-size: 28px;
-    margin-bottom: 12px;
-  }
-  .landscape-card h3 {
-    font-family: 'Inter', sans-serif;
-    font-size: 15px;
-    font-weight: 700;
-    color: var(--dark);
-    margin-bottom: 6px;
-  }
-  .landscape-card .lc-fact {
-    font-size: 22px;
-    font-weight: 800;
-    color: var(--primary);
-    margin-bottom: 4px;
-    font-family: 'Inter', sans-serif;
-  }
-  .landscape-card p {
-    font-size: 13px;
-    color: var(--mid);
-    line-height: 1.5;
-  }
-  .landscape-source {
-    font-size: 11px;
-    color: #aaa;
-    margin-top: 4px;
+    max-width: 600px;
+    margin-bottom: 60px;
   }
 
   /* HOW IT WORKS */
-  .how {
-    padding: 80px 24px;
-    background: white;
-  }
-  .how-inner {
-    max-width: 1140px;
-    margin: 0 auto;
-    text-align: center;
-  }
-  .steps {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 32px;
-    margin-top: 48px;
-    text-align: left;
-  }
+  .how-bg { background: var(--light); }
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+  @media(max-width:768px){ .steps { grid-template-columns: 1fr; } }
   .step {
-    position: relative;
-    padding: 28px;
-    background: var(--light);
-    border-radius: 16px;
+    background: white;
     border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px;
   }
   .step-num {
-    width: 36px; height: 36px;
-    background: var(--gradient);
-    color: white;
-    border-radius: 10px;
+    width: 48px; height: 48px;
+    background: var(--primary-light);
+    color: var(--primary);
+    border-radius: 12px;
     display: flex; align-items: center; justify-content: center;
     font-weight: 800;
-    font-size: 15px;
-    margin-bottom: 16px;
+    font-size: 20px;
+    margin-bottom: 20px;
     font-family: 'Inter', sans-serif;
   }
-  .step h3 {
-    font-family: 'Inter', sans-serif;
-    font-size: 16px;
-    font-weight: 700;
+  .step h3 { font-size: 20px; margin-bottom: 12px; }
+  .step p { color: var(--mid); font-size: 15px; }
+
+  /* EU FUNDING FACTS */
+  .facts-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  @media(max-width:900px){ .facts-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media(max-width:500px){ .facts-grid { grid-template-columns: 1fr; } }
+  .fact-card {
+    background: var(--light);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px 24px;
+  }
+  .fact-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--primary);
     margin-bottom: 8px;
-    color: var(--dark);
   }
-  .step p { font-size: 14px; color: var(--mid); }
+  .fact-label { font-size: 14px; font-weight: 600; color: var(--dark); margin-bottom: 6px; }
+  .fact-source { font-size: 12px; color: var(--mid); }
 
   /* FEATURES */
-  .features {
-    padding: 80px 24px;
-    background: var(--dark);
-  }
-  .features-inner {
-    max-width: 1140px;
-    margin: 0 auto;
-  }
-  .features-header { text-align: center; margin-bottom: 48px; }
-  .features-header .section-title { color: white; }
-  .features-header .section-sub { color: rgba(255,255,255,0.55); margin: 0 auto; }
-  .features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 24px;
-  }
+  .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  @media(max-width:768px){ .features { grid-template-columns: 1fr; } }
   .feature-card {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 16px;
-    padding: 28px;
-    transition: border-color 0.2s;
-  }
-  .feature-card:hover { border-color: rgba(0,82,255,0.4); }
-  .feature-icon {
-    font-size: 28px;
-    margin-bottom: 16px;
-  }
-  .feature-card h3 {
-    font-family: 'Inter', sans-serif;
-    font-size: 16px;
-    font-weight: 700;
-    color: white;
-    margin-bottom: 10px;
-  }
-  .feature-card p { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.6; }
-
-  /* PROGRAMS */
-  .programs {
-    padding: 80px 24px;
-    background: var(--light);
-  }
-  .programs-inner {
-    max-width: 1140px;
-    margin: 0 auto;
-  }
-  .programs-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 16px;
-    margin-top: 40px;
-  }
-  .program-pill {
-    background: white;
     border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .feature-card:hover { border-color: var(--primary); box-shadow: 0 4px 24px rgba(0,82,255,0.1); }
+  .feature-icon {
+    width: 52px; height: 52px;
+    background: var(--primary-light);
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  .feature-card h3 { font-size: 20px; margin-bottom: 12px; }
+  .feature-card p { color: var(--mid); font-size: 15px; }
+
+  /* QUIZ SECTION */
+  .quiz-section { background: var(--dark); }
+  .quiz-section .section-title { color: white; }
+  .quiz-section .section-sub { color: rgba(255,255,255,0.6); }
+  .quiz-section .section-label { color: var(--secondary); }
+
+  .quiz-widget {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 24px;
+    padding: 48px;
+    max-width: 720px;
+    margin: 0 auto;
+    backdrop-filter: blur(10px);
+  }
+  @media(max-width:600px){ .quiz-widget { padding: 28px 20px; } }
+
+  .quiz-progress {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 36px;
+  }
+  .quiz-progress-bar {
+    height: 4px;
+    flex: 1;
+    background: rgba(255,255,255,0.15);
+    border-radius: 4px;
+    transition: background 0.3s;
+  }
+  .quiz-progress-bar.active { background: var(--secondary); }
+  .quiz-progress-bar.done { background: var(--primary); }
+
+  .quiz-step { display: none; }
+  .quiz-step.active { display: block; }
+
+  .quiz-question {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    color: white;
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+  .quiz-hint {
+    font-size: 14px;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 28px;
+  }
+
+  .quiz-options { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media(max-width:500px){ .quiz-options { grid-template-columns: 1fr; } }
+
+  .quiz-option {
+    background: rgba(255,255,255,0.05);
+    border: 1.5px solid rgba(255,255,255,0.12);
     border-radius: 12px;
-    padding: 18px 20px;
+    padding: 16px 20px;
+    cursor: pointer;
+    color: white;
+    font-size: 15px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    text-align: left;
+    transition: border-color 0.2s, background 0.2s;
     display: flex;
     align-items: center;
     gap: 12px;
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--dark);
-    transition: box-shadow 0.2s;
   }
-  .program-pill:hover { box-shadow: 0 4px 16px rgba(0,82,255,0.1); }
-  .program-pill .pp-icon { font-size: 20px; }
+  .quiz-option:hover { border-color: var(--secondary); background: rgba(0,212,170,0.08); }
+  .quiz-option.selected { border-color: var(--secondary); background: rgba(0,212,170,0.12); }
+  .quiz-option-icon { font-size: 20px; }
 
-  /* EARLY ACCESS */
-  .early {
-    padding: 80px 24px;
-    background: white;
-  }
-  .early-inner {
-    max-width: 680px;
-    margin: 0 auto;
-    text-align: center;
-  }
-  .early-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: var(--primary-light);
-    color: var(--primary);
-    padding: 6px 14px;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-  }
-  .early h2 { font-size: clamp(28px, 4vw, 40px); margin-bottom: 14px; color: var(--dark); }
-  .early p { color: var(--mid); font-size: 17px; margin-bottom: 32px; }
-  .signup-form { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
-  .signup-form input {
-    flex: 1;
-    min-width: 220px;
-    padding: 14px 18px;
-    border: 1.5px solid var(--border);
-    border-radius: 10px;
-    font-size: 15px;
-    font-family: 'Inter', sans-serif;
-    outline: none;
-    transition: border-color 0.2s;
-  }
-  .signup-form input:focus { border-color: var(--primary); }
-  .signup-form button {
-    background: var(--gradient);
-    color: white;
-    border: none;
-    padding: 14px 28px;
-    border-radius: 10px;
-    font-weight: 700;
-    font-size: 15px;
-    cursor: pointer;
-    font-family: 'Inter', sans-serif;
-    white-space: nowrap;
-    transition: opacity 0.2s;
-  }
-  .signup-form button:hover { opacity: 0.9; }
-  .signup-note { font-size: 12px; color: #aaa; margin-top: 12px; }
-  #signup-success { display: none; color: var(--secondary-dark); font-weight: 600; margin-top: 12px; }
-
-  /* FAQ */
-  .faq {
-    padding: 80px 24px;
-    background: var(--light);
-  }
-  .faq-inner {
-    max-width: 720px;
-    margin: 0 auto;
-  }
-  .faq-inner .section-title { text-align: center; margin-bottom: 8px; }
-  .faq-inner .section-sub { text-align: center; margin: 0 auto 40px; }
-  .faq-item {
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    background: white;
-    margin-bottom: 12px;
-    overflow: hidden;
-  }
-  .faq-q {
-    padding: 18px 22px;
-    font-weight: 600;
-    font-size: 15px;
-    cursor: pointer;
+  .quiz-nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 12px;
+    margin-top: 32px;
   }
-  .faq-q:hover { background: var(--light); }
-  .faq-arrow { font-size: 18px; color: var(--primary); transition: transform 0.2s; flex-shrink: 0; }
-  .faq-a {
-    display: none;
-    padding: 0 22px 18px;
+  .quiz-back {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.6);
+    padding: 12px 24px;
+    border-radius: 8px;
     font-size: 14px;
-    color: var(--mid);
-    line-height: 1.7;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s;
   }
-  .faq-item.open .faq-a { display: block; }
-  .faq-item.open .faq-arrow { transform: rotate(180deg); }
+  .quiz-back:hover { border-color: white; color: white; }
+  .quiz-next {
+    background: var(--gradient);
+    color: white;
+    border: none;
+    padding: 14px 32px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 15px;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 16px rgba(0,82,255,0.35);
+  }
+  .quiz-next:hover { transform: translateY(-1px); }
+  .quiz-next:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+
+  /* RESULTS */
+  .quiz-results { display: none; }
+  .quiz-results.active { display: block; }
+  .results-header {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+  .results-header .emoji { font-size: 48px; display: block; margin-bottom: 12px; }
+  .results-header h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    color: white;
+    margin-bottom: 8px;
+  }
+  .results-header p { color: rgba(255,255,255,0.6); font-size: 15px; }
+
+  .results-grants { margin-bottom: 32px; }
+  .result-grant {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 14px;
+    padding: 20px 24px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .result-grant-info h4 { color: white; font-size: 16px; font-weight: 700; margin-bottom: 4px; font-family: 'Inter', sans-serif; }
+  .result-grant-info p { color: rgba(255,255,255,0.5); font-size: 13px; }
+  .result-grant-amount {
+    font-weight: 800;
+    color: var(--secondary);
+    font-size: 15px;
+    white-space: nowrap;
+    font-family: 'Inter', sans-serif;
+  }
+  .results-cta {
+    text-align: center;
+  }
+  .results-cta .btn-primary { font-size: 16px; padding: 16px 40px; }
+  .results-cta p { color: rgba(255,255,255,0.4); font-size: 13px; margin-top: 12px; }
+
+  /* EMAIL SIGNUP */
+  .signup-section { background: var(--primary); }
+  .signup-inner {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .signup-inner h2 { color: white; font-size: clamp(28px,4vw,44px); margin-bottom: 16px; }
+  .signup-inner p { color: rgba(255,255,255,0.8); font-size: 18px; margin-bottom: 40px; }
+  .signup-form { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+  .signup-form input {
+    flex: 1;
+    min-width: 220px;
+    padding: 16px 20px;
+    border-radius: 10px;
+    border: none;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    outline: none;
+  }
+  .signup-form button {
+    background: var(--dark);
+    color: white;
+    border: none;
+    padding: 16px 32px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    transition: background 0.2s;
+  }
+  .signup-form button:hover { background: var(--dark2); }
+  #signup-msg { color: rgba(255,255,255,0.9); margin-top: 16px; font-size: 15px; min-height: 22px; }
 
   /* FOOTER */
   footer {
     background: var(--dark);
-    color: rgba(255,255,255,0.45);
+    padding: 48px 24px;
     text-align: center;
-    padding: 32px 24px;
-    font-size: 13px;
+    color: rgba(255,255,255,0.4);
+    font-size: 14px;
   }
-  footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
+  footer a { color: rgba(255,255,255,0.5); text-decoration: none; }
   footer a:hover { color: white; }
+  .footer-logo { margin-bottom: 20px; }
+  .footer-links { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; margin-bottom: 20px; }
 </style>
 </head>
 <body>
@@ -524,9 +513,9 @@
   <div class="nav-inner">
     <a class="logo" href="#">
       <div class="logo-icon">🧭</div>
-      <span class="logo-text">Grant<span>Pilot</span></span>
+      <div class="logo-text">Grant<span>Pilot</span></div>
     </a>
-    <a class="nav-cta" href="#early-access">Get Early Access</a>
+    <a class="nav-cta" href="#signup">Get Early Access</a>
   </div>
 </nav>
 
@@ -537,266 +526,415 @@
   <div class="hero-inner">
     <div>
       <div class="hero-badge">🇪🇺 Built for EU & Nordic founders</div>
-      <h1>Find and win <span>EU grants</span> with AI</h1>
-      <p class="hero-sub">GrantPilot scans thousands of EU and Nordic funding programs, matches them to your company, and helps you write compelling applications — in days, not months.</p>
+      <h1>AI that finds and <em>wins</em> you EU grants</h1>
+      <p>GrantPilot scans thousands of EU and Nordic funding programs, matches them to your company, and helps you write winning applications — in days, not months.</p>
       <div class="hero-actions">
-        <button class="btn-primary" onclick="document.getElementById('early-access').scrollIntoView({behavior:'smooth'})">Get Early Access</button>
-        <button class="btn-secondary" onclick="document.getElementById('how').scrollIntoView({behavior:'smooth'})">See How It Works</button>
+        <button class="btn-primary" onclick="document.getElementById('quiz').scrollIntoView({behavior:'smooth'})">Check My Eligibility</button>
+        <button class="btn-outline" onclick="document.getElementById('signup').scrollIntoView({behavior:'smooth'})">Get Early Access</button>
       </div>
     </div>
-    <div class="hero-card">
-      <div class="hero-card-title">🔍 Grant matches for your profile</div>
-      <div class="match-item">
-        <div class="match-icon blue">🌍</div>
-        <div class="match-info">
-          <div class="match-name">EIC Accelerator</div>
-          <div class="match-sub">Up to €2.5M grant + €15M equity</div>
+    <div>
+      <div class="hero-card">
+        <div class="hero-card-header">
+          <div class="dot dot-red"></div>
+          <div class="dot dot-yellow"></div>
+          <div class="dot dot-green"></div>
+          <span style="margin-left:8px;">Matched grants for your profile</span>
         </div>
-        <div class="match-score">94%</div>
-      </div>
-      <div class="match-item">
-        <div class="match-icon green">🇫🇮</div>
-        <div class="match-info">
-          <div class="match-name">Business Finland R&D</div>
-          <div class="match-sub">Up to €1M for innovative SMEs</div>
+        <div class="grant-item">
+          <div>
+            <div class="grant-name">EIC Accelerator</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.4);margin-top:2px;">European Innovation Council</div>
+          </div>
+          <div style="text-align:right;">
+            <div class="grant-amount">Up to €2.5M</div>
+            <div class="grant-match">92% match</div>
+          </div>
         </div>
-        <div class="match-score">88%</div>
-      </div>
-      <div class="match-item">
-        <div class="match-icon purple">⚡</div>
-        <div class="match-info">
-          <div class="match-name">Horizon Europe KDT</div>
-          <div class="match-sub">Collaborative R&D funding</div>
+        <div class="grant-item">
+          <div>
+            <div class="grant-name">Business Finland R&D</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.4);margin-top:2px;">Business Finland</div>
+          </div>
+          <div style="text-align:right;">
+            <div class="grant-amount">Up to €1M</div>
+            <div class="grant-match">88% match</div>
+          </div>
         </div>
-        <div class="match-score">76%</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- GRANT LANDSCAPE (real public data) -->
-<section class="landscape">
-  <div class="landscape-inner">
-    <div class="section-label">The EU Funding Landscape</div>
-    <h2 class="section-title">There is real money available — most founders never apply</h2>
-    <p class="section-sub">Public facts about EU and Nordic grant programs that GrantPilot helps you access.</p>
-    <div class="landscape-grid">
-      <div class="landscape-card">
-        <div class="lc-icon">🌍</div>
-        <h3>Horizon Europe</h3>
-        <div class="lc-fact">€95.5B</div>
-        <p>Total EU research & innovation budget, 2021–2027.</p>
-        <div class="landscape-source">Source: European Commission</div>
-      </div>
-      <div class="landscape-card">
-        <div class="lc-icon">🚀</div>
-        <h3>EIC Accelerator</h3>
-        <div class="lc-fact">€2.5M</div>
-        <p>Maximum non-dilutive grant per company, plus up to €15M equity investment.</p>
-        <div class="landscape-source">Source: EIC, 2024</div>
-      </div>
-      <div class="landscape-card">
-        <div class="lc-icon">🇫🇮</div>
-        <h3>Business Finland</h3>
-        <div class="lc-fact">€800M+</div>
-        <p>Annual funding budget for Finnish companies in R&D, growth, and internationalisation.</p>
-        <div class="landscape-source">Source: Business Finland annual report</div>
-      </div>
-      <div class="landscape-card">
-        <div class="lc-icon">🌱</div>
-        <h3>Application success rates</h3>
-        <div class="lc-fact">~14%</div>
-        <p>Average EIC Accelerator success rate — preparation quality is the leading differentiator.</p>
-        <div class="landscape-source">Source: EIC statistics, 2023</div>
+        <div class="grant-item">
+          <div>
+            <div class="grant-name">Horizon Europe EIC Pathfinder</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.4);margin-top:2px;">European Commission</div>
+          </div>
+          <div style="text-align:right;">
+            <div class="grant-amount">Up to €4M</div>
+            <div class="grant-match">79% match</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- HOW IT WORKS -->
-<section class="how" id="how">
-  <div class="how-inner">
-    <div class="section-label">How It Works</div>
-    <h2 class="section-title">From profile to submission in days</h2>
+<section class="how-bg">
+  <div class="section-inner">
+    <div class="section-label">How it works</div>
+    <h2 class="section-title">From profile to application in three steps</h2>
+    <p class="section-sub">GrantPilot replaces weeks of manual research and expensive consultants with an AI co-pilot that does the heavy lifting.</p>
     <div class="steps">
       <div class="step">
         <div class="step-num">1</div>
-        <h3>Build your company profile</h3>
-        <p>Tell GrantPilot about your sector, stage, technology, and goals. This takes about 10 minutes.</p>
+        <h3>Build your profile</h3>
+        <p>Tell GrantPilot about your company — sector, stage, team, technology, and revenue. Takes under 10 minutes.</p>
       </div>
       <div class="step">
         <div class="step-num">2</div>
-        <h3>Get matched to relevant grants</h3>
-        <p>Our AI scans EU, Nordic, and national programs and ranks the ones most likely to fit your company — with deadlines and eligibility notes.</p>
+        <h3>Get matched</h3>
+        <p>Our AI continuously scans thousands of EU and Nordic funding programs and surfaces the ones you're most likely to win.</p>
       </div>
       <div class="step">
         <div class="step-num">3</div>
-        <h3>Draft your application with AI</h3>
-        <p>GrantPilot's writing engine helps you complete each section — impact narrative, budget structure, and problem statement — using your own company data.</p>
+        <h3>Write and submit</h3>
+        <p>Use our AI drafting engine to write each application section, auto-fill company data, and score your draft before submitting.</p>
       </div>
-      <div class="step">
-        <div class="step-num">4</div>
-        <h3>Score and iterate before submitting</h3>
-        <p>See how your draft scores against the official evaluation criteria, fix weak sections, and submit with confidence.</p>
+    </div>
+  </div>
+</section>
+
+<!-- EU FUNDING FACTS -->
+<section>
+  <div class="section-inner">
+    <div class="section-label">The opportunity</div>
+    <h2 class="section-title">Billions in grants go unclaimed every year</h2>
+    <p class="section-sub">Most EU and Nordic grants are undersubscribed — not because founders don't qualify, but because the process is opaque and time-consuming.</p>
+    <div class="facts-grid">
+      <div class="fact-card">
+        <div class="fact-number">€95.5B</div>
+        <div class="fact-label">Horizon Europe total budget</div>
+        <div class="fact-source">Source: European Commission, 2021–2027 MFF</div>
+      </div>
+      <div class="fact-card">
+        <div class="fact-number">€2.5M</div>
+        <div class="fact-label">Max EIC Accelerator grant</div>
+        <div class="fact-source">Source: EIC Work Programme 2024</div>
+      </div>
+      <div class="fact-card">
+        <div class="fact-number">€800M+</div>
+        <div class="fact-label">Business Finland annual budget</div>
+        <div class="fact-source">Source: Business Finland Annual Report 2023</div>
+      </div>
+      <div class="fact-card">
+        <div class="fact-number">~14%</div>
+        <div class="fact-label">Avg. EIC Accelerator success rate</div>
+        <div class="fact-source">Source: EIC Annual Report 2023</div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- FEATURES -->
-<section class="features">
-  <div class="features-inner">
-    <div class="features-header">
-      <div class="section-label" style="color:var(--secondary)">What's Inside</div>
-      <h2 class="section-title">Everything a grant application needs</h2>
-      <p class="section-sub">GrantPilot handles the hard parts of EU grant applications so founders can stay focused on building.</p>
-    </div>
-    <div class="features-grid">
+<section class="how-bg">
+  <div class="section-inner">
+    <div class="section-label">Features</div>
+    <h2 class="section-title">Everything you need to win grants</h2>
+    <p class="section-sub">GrantPilot handles the full grant lifecycle — from discovery to a scored, submission-ready draft.</p>
+    <div class="features">
       <div class="feature-card">
-        <div class="feature-icon">🔎</div>
-        <h3>Continuous grant scanning</h3>
-        <p>Thousands of programs across Horizon Europe, EIC, Business Finland, Nordic Innovation Fund, and more — updated automatically.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">🎯</div>
-        <h3>AI-powered matching</h3>
-        <p>We match programs to your sector, stage, and geography — not just keywords — and explain why each grant fits your profile.</p>
+        <div class="feature-icon">🔍</div>
+        <h3>Smart grant matching</h3>
+        <p>AI continuously scans Business Finland, Nordic Innovation Fund, Horizon Europe, EIC, and hundreds more — filtered by your exact profile.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon">✍️</div>
-        <h3>Section-by-section drafting</h3>
-        <p>Generate impact narratives, problem statements, work packages, and budget summaries using your own company data as the foundation.</p>
+        <h3>AI drafting engine</h3>
+        <p>Write compelling applications section by section. Auto-fill company data, generate impact narratives, and structure budgets automatically.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon">📊</div>
-        <h3>Evaluation scoring</h3>
-        <p>See how your draft is likely to score against official criteria before you submit — and get targeted suggestions to strengthen weak areas.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">🗂️</div>
-        <h3>Auto-filled company data</h3>
-        <p>Your profile, financials, and past applications pre-fill new applications — no re-entering the same information every time.</p>
+        <h3>Evaluator scoring</h3>
+        <p>Score your draft against official evaluation criteria before you submit. Iterate until your application is competitive.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon">🗓️</div>
         <h3>Deadline tracking</h3>
-        <p>Never miss a call. GrantPilot tracks open deadlines across all your matched programs and alerts you well in advance.</p>
+        <p>Never miss a call. GrantPilot monitors open calls and notifies you well in advance so you have time to prepare.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🌍</div>
+        <h3>EU & Nordic coverage</h3>
+        <p>Purpose-built for the European funding landscape — from Helsinki and Stockholm to Brussels and Luxembourg.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <h3>Days, not months</h3>
+        <p>What typically takes weeks and thousands in consulting fees, GrantPilot compresses into a process any founder can complete in days.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- GRANT PROGRAMS -->
-<section class="programs">
-  <div class="programs-inner">
-    <div class="section-label">Covered Programs</div>
-    <h2 class="section-title">Programs we track</h2>
-    <p class="section-sub" style="color:var(--mid);font-size:17px;margin-bottom:8px;">A sample of the EU and Nordic funding sources GrantPilot monitors.</p>
-    <div class="programs-grid">
-      <div class="program-pill"><span class="pp-icon">🌍</span> Horizon Europe</div>
-      <div class="program-pill"><span class="pp-icon">🚀</span> EIC Accelerator</div>
-      <div class="program-pill"><span class="pp-icon">🔬</span> EIC Pathfinder</div>
-      <div class="program-pill"><span class="pp-icon">🇫🇮</span> Business Finland</div>
-      <div class="program-pill"><span class="pp-icon">🌱</span> Nordic Innovation</div>
-      <div class="program-pill"><span class="pp-icon">🏭</span> Eurostars</div>
-      <div class="program-pill"><span class="pp-icon">⚡</span> InvestEU</div>
-      <div class="program-pill"><span class="pp-icon">🌊</span> LIFE Programme</div>
-      <div class="program-pill"><span class="pp-icon">🔗</span> Digital Europe</div>
-      <div class="program-pill"><span class="pp-icon">🏗️</span> Interreg</div>
+<!-- GRANT ELIGIBILITY QUIZ -->
+<section class="quiz-section" id="quiz">
+  <div class="section-inner">
+    <div style="text-align:center;margin-bottom:48px;">
+      <div class="section-label">Free eligibility check</div>
+      <h2 class="section-title">Which EU grants could you win?</h2>
+      <p class="section-sub" style="margin:0 auto;">Answer 5 quick questions and we'll show you the grant programs most likely to fund your company.</p>
+    </div>
+
+    <div class="quiz-widget">
+      <!-- Progress bars -->
+      <div class="quiz-progress">
+        <div class="quiz-progress-bar" id="pb0"></div>
+        <div class="quiz-progress-bar" id="pb1"></div>
+        <div class="quiz-progress-bar" id="pb2"></div>
+        <div class="quiz-progress-bar" id="pb3"></div>
+        <div class="quiz-progress-bar" id="pb4"></div>
+      </div>
+
+      <!-- Step 1: Sector -->
+      <div class="quiz-step active" id="qs0">
+        <div class="quiz-question">What sector does your company operate in?</div>
+        <div class="quiz-hint">Choose the closest fit — you can refine later inside GrantPilot.</div>
+        <div class="quiz-options">
+          <button class="quiz-option" data-step="0" data-value="deeptech"><span class="quiz-option-icon">🔬</span>Deep Tech / R&D</button>
+          <button class="quiz-option" data-step="0" data-value="cleantech"><span class="quiz-option-icon">🌱</span>Cleantech / Climate</button>
+          <button class="quiz-option" data-step="0" data-value="health"><span class="quiz-option-icon">🏥</span>Health / MedTech</button>
+          <button class="quiz-option" data-step="0" data-value="digital"><span class="quiz-option-icon">💻</span>Digital / SaaS</button>
+          <button class="quiz-option" data-step="0" data-value="manufacturing"><span class="quiz-option-icon">🏭</span>Manufacturing / Industry</button>
+          <button class="quiz-option" data-step="0" data-value="other"><span class="quiz-option-icon">🚀</span>Other</button>
+        </div>
+        <div class="quiz-nav">
+          <div></div>
+          <button class="quiz-next" id="qnext0" disabled onclick="goNext(0)">Next →</button>
+        </div>
+      </div>
+
+      <!-- Step 2: Stage -->
+      <div class="quiz-step" id="qs1">
+        <div class="quiz-question">What stage is your company at?</div>
+        <div class="quiz-hint">This affects which programs you're eligible for.</div>
+        <div class="quiz-options">
+          <button class="quiz-option" data-step="1" data-value="idea"><span class="quiz-option-icon">💡</span>Idea / Pre-seed</button>
+          <button class="quiz-option" data-step="1" data-value="mvp"><span class="quiz-option-icon">🛠️</span>MVP / Seed</button>
+          <button class="quiz-option" data-step="1" data-value="earlyrevenue"><span class="quiz-option-icon">📈</span>Early Revenue</button>
+          <button class="quiz-option" data-step="1" data-value="scaling"><span class="quiz-option-icon">⚡</span>Scaling / Series A+</button>
+        </div>
+        <div class="quiz-nav">
+          <button class="quiz-back" onclick="goBack(1)">← Back</button>
+          <button class="quiz-next" id="qnext1" disabled onclick="goNext(1)">Next →</button>
+        </div>
+      </div>
+
+      <!-- Step 3: Location -->
+      <div class="quiz-step" id="qs2">
+        <div class="quiz-question">Where is your company registered?</div>
+        <div class="quiz-hint">Some programs are country-specific; others are open to any EU/EEA country.</div>
+        <div class="quiz-options">
+          <button class="quiz-option" data-step="2" data-value="finland"><span class="quiz-option-icon">🇫🇮</span>Finland</button>
+          <button class="quiz-option" data-step="2" data-value="nordics"><span class="quiz-option-icon">🇸🇪</span>Other Nordic country</button>
+          <button class="quiz-option" data-step="2" data-value="eu"><span class="quiz-option-icon">🇪🇺</span>Other EU country</button>
+          <button class="quiz-option" data-step="2" data-value="outside"><span class="quiz-option-icon">🌍</span>Outside EU</button>
+        </div>
+        <div class="quiz-nav">
+          <button class="quiz-back" onclick="goBack(2)">← Back</button>
+          <button class="quiz-next" id="qnext2" disabled onclick="goNext(2)">Next →</button>
+        </div>
+      </div>
+
+      <!-- Step 4: Team size -->
+      <div class="quiz-step" id="qs3">
+        <div class="quiz-question">How many full-time employees do you have?</div>
+        <div class="quiz-hint">Many EU grants are reserved for SMEs (&lt;250 employees).</div>
+        <div class="quiz-options">
+          <button class="quiz-option" data-step="3" data-value="solo"><span class="quiz-option-icon">👤</span>Solo / 1 person</button>
+          <button class="quiz-option" data-step="3" data-value="small"><span class="quiz-option-icon">👥</span>2–10 people</button>
+          <button class="quiz-option" data-step="3" data-value="medium"><span class="quiz-option-icon">🏢</span>11–50 people</button>
+          <button class="quiz-option" data-step="3" data-value="large"><span class="quiz-option-icon">🏛️</span>51–250 people</button>
+        </div>
+        <div class="quiz-nav">
+          <button class="quiz-back" onclick="goBack(3)">← Back</button>
+          <button class="quiz-next" id="qnext3" disabled onclick="goNext(3)">Next →</button>
+        </div>
+      </div>
+
+      <!-- Step 5: Applied before -->
+      <div class="quiz-step" id="qs4">
+        <div class="quiz-question">Have you applied for EU or Nordic grants before?</div>
+        <div class="quiz-hint">This helps us tailor the recommendations for you.</div>
+        <div class="quiz-options">
+          <button class="quiz-option" data-step="4" data-value="never"><span class="quiz-option-icon">🆕</span>Never applied</button>
+          <button class="quiz-option" data-step="4" data-value="unsuccessful"><span class="quiz-option-icon">❌</span>Applied but not funded</button>
+          <button class="quiz-option" data-step="4" data-value="once"><span class="quiz-option-icon">✅</span>Funded once</button>
+          <button class="quiz-option" data-step="4" data-value="multiple"><span class="quiz-option-icon">🏆</span>Funded multiple times</button>
+        </div>
+        <div class="quiz-nav">
+          <button class="quiz-back" onclick="goBack(4)">← Back</button>
+          <button class="quiz-next" id="qnext4" disabled onclick="goNext(4)">See My Matches 🎯</button>
+        </div>
+      </div>
+
+      <!-- RESULTS -->
+      <div class="quiz-results" id="quiz-results">
+        <div class="results-header">
+          <span class="emoji">🎯</span>
+          <h3>Your top grant matches</h3>
+          <p>Based on your profile, here are the programs most likely to fund you:</p>
+        </div>
+        <div class="results-grants" id="results-grants"></div>
+        <div class="results-cta">
+          <button class="btn-primary" onclick="document.getElementById('signup').scrollIntoView({behavior:'smooth'})">Get My Full Match List →</button>
+          <p>Join the early access list — we'll notify you when GrantPilot launches.</p>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
-<!-- EARLY ACCESS -->
-<section class="early" id="early-access">
-  <div class="early-inner">
-    <div class="early-badge">🛠 Early Access</div>
-    <h2>Be among the first founders on GrantPilot</h2>
-    <p>We're onboarding a small group of early-access companies. Leave your email and we'll reach out when your spot is ready.</p>
-    <div class="signup-form">
-      <input type="email" id="ea-email" placeholder="your@company.com" />
-      <button onclick="joinWaitlist()">Request Access</button>
-    </div>
-    <div class="signup-note">No spam. No commitment. Just an early invite when we're ready for you.</div>
-    <div id="signup-success">✅ You're on the list — we'll be in touch soon!</div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section class="faq">
-  <div class="faq-inner">
-    <div class="section-label" style="text-align:center">FAQ</div>
-    <h2 class="section-title">Common questions</h2>
-    <p class="section-sub">Answers to what EU grant applicants ask most.</p>
-
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">
-        Do I need to be an expert in EU grants to use GrantPilot?
-        <span class="faq-arrow">▾</span>
+<!-- EMAIL SIGNUP -->
+<section class="signup-section" id="signup">
+  <div class="section-inner">
+    <div class="signup-inner">
+      <h2>Get early access to GrantPilot</h2>
+      <p>Be first to know when we launch. No spam — just your invite when we're ready.</p>
+      <div class="signup-form">
+        <input type="email" id="signup-email" placeholder="Your work email" />
+        <button onclick="handleSignup()">Get Early Access</button>
       </div>
-      <div class="faq-a">No. GrantPilot is designed for founders, not grant consultants. The platform guides you through each step — from finding the right program to writing a complete draft — without assuming prior knowledge of EU funding processes.</div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">
-        Which countries and programs does GrantPilot cover?
-        <span class="faq-arrow">▾</span>
-      </div>
-      <div class="faq-a">GrantPilot focuses on EU-wide programs (Horizon Europe, EIC, InvestEU, LIFE, Digital Europe) and Nordic national programs including Business Finland, Nordic Innovation Fund, and others. Coverage expands as new programs are added.</div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">
-        Does GrantPilot guarantee I'll win a grant?
-        <span class="faq-arrow">▾</span>
-      </div>
-      <div class="faq-a">No — and you should be sceptical of any service that claims otherwise. EU grant competitions are selective by design. GrantPilot helps you find the right programs, write a stronger application, and avoid common mistakes — but the outcome depends on your company's merit and the competition in each call.</div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">
-        How is GrantPilot different from hiring a grant consultant?
-        <span class="faq-arrow">▾</span>
-      </div>
-      <div class="faq-a">Grant consultants typically charge €5,000–€30,000+ per application and work on your behalf. GrantPilot puts the tools in your hands at a fraction of the cost — you remain in control of the content, and the AI handles the heavy lifting of research and drafting.</div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">
-        When can I start using GrantPilot?
-        <span class="faq-arrow">▾</span>
-      </div>
-      <div class="faq-a">GrantPilot is currently in early access. Leave your email above and we'll invite you as soon as your spot is available. Early-access users will have direct input into the product roadmap.</div>
+      <div id="signup-msg"></div>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <p>© <span class="year"></span> GrantPilot. Built in Finland. 🇫🇮 &nbsp;|&nbsp; <a href="mailto:grantpilot@madmantra.app">grantpilot@madmantra.app</a></p>
+  <div class="footer-logo">
+    <strong style="color:white;font-size:18px;">GrantPilot</strong>
+  </div>
+  <div class="footer-links">
+    <a href="#quiz">Eligibility Quiz</a>
+    <a href="#signup">Early Access</a>
+    <a href="mailto:grantpilot@madmantra.app">Contact</a>
+  </div>
+  <p>© <span class="year"></span> GrantPilot. Built in Finland. All rights reserved.</p>
 </footer>
 
 <script>
   document.querySelectorAll('.year').forEach(e => e.textContent = new Date().getFullYear());
 
-  function toggleFaq(el) {
-    const item = el.closest('.faq-item');
-    item.classList.toggle('open');
+  // ---- QUIZ ----
+  const answers = {};
+  const totalSteps = 5;
+
+  function updateProgress(current) {
+    for (let i = 0; i < totalSteps; i++) {
+      const bar = document.getElementById('pb' + i);
+      if (i < current) bar.className = 'quiz-progress-bar done';
+      else if (i === current) bar.className = 'quiz-progress-bar active';
+      else bar.className = 'quiz-progress-bar';
+    }
   }
 
-  async function joinWaitlist() {
-    const email = document.getElementById('ea-email').value.trim();
-    if (!email || !email.includes('@')) { alert('Please enter a valid email address.'); return; }
+  document.querySelectorAll('.quiz-option').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const step = parseInt(btn.dataset.step);
+      document.querySelectorAll(`.quiz-option[data-step="${step}"]`).forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+      answers[step] = btn.dataset.value;
+      document.getElementById('qnext' + step).disabled = false;
+    });
+  });
+
+  function goNext(step) {
+    if (!answers[step]) return;
+    document.getElementById('qs' + step).classList.remove('active');
+    if (step + 1 < totalSteps) {
+      document.getElementById('qs' + (step + 1)).classList.add('active');
+      updateProgress(step + 1);
+    } else {
+      showResults();
+    }
+  }
+
+  function goBack(step) {
+    document.getElementById('qs' + step).classList.remove('active');
+    document.getElementById('qs' + (step - 1)).classList.add('active');
+    updateProgress(step - 1);
+  }
+
+  function showResults() {
+    for (let i = 0; i < totalSteps; i++) {
+      const el = document.getElementById('qs' + i);
+      if (el) el.classList.remove('active');
+    }
+    document.getElementById('quiz-results').classList.add('active');
+    for (let i = 0; i < totalSteps; i++) {
+      document.getElementById('pb' + i).className = 'quiz-progress-bar done';
+    }
+
+    const sector = answers[0];
+    const stage  = answers[1];
+    const loc    = answers[2];
+
+    const allGrants = [
+      { name: 'EIC Accelerator', desc: 'European Innovation Council — deep tech & breakthrough innovation', amount: 'Up to €2.5M', tags: ['deeptech','health','cleantech','mvp','earlyrevenue','scaling','finland','nordics','eu'] },
+      { name: 'EIC Pathfinder', desc: 'Horizon Europe — early-stage visionary research', amount: 'Up to €4M', tags: ['deeptech','health','cleantech','manufacturing','idea','mvp','finland','nordics','eu'] },
+      { name: 'Business Finland R&D Grant', desc: 'Finnish companies — product & process R&D funding', amount: 'Up to €1M', tags: ['deeptech','cleantech','health','digital','manufacturing','finland'] },
+      { name: 'Business Finland Market Exploration', desc: 'International market entry for Finnish startups', amount: 'Up to €50K', tags: ['digital','health','cleantech','deeptech','finland','idea','mvp'] },
+      { name: 'Nordic Innovation Fund', desc: 'Pan-Nordic projects in cleantech, digitalisation, circular economy', amount: 'Up to €500K', tags: ['cleantech','digital','manufacturing','finland','nordics'] },
+      { name: 'Horizon Europe MSCA', desc: 'Researcher mobility & training grants across EU', amount: 'Varies', tags: ['deeptech','health','eu','finland','nordics'] },
+      { name: 'InvestEU SME Guarantee', desc: 'EU-backed loans & guarantees for SMEs', amount: 'Varies', tags: ['manufacturing','digital','other','eu','finland','nordics','earlyrevenue','scaling'] },
+      { name: 'EUREKA / Eurostars', desc: 'R&D collaboration grants for SMEs with international partners', amount: 'Up to €500K', tags: ['deeptech','health','manufacturing','mvp','earlyrevenue','finland','nordics','eu'] },
+    ];
+
+    const scored = allGrants.map(g => {
+      let score = 0;
+      if (g.tags.includes(sector)) score += 3;
+      if (g.tags.includes(stage)) score += 2;
+      if (g.tags.includes(loc)) score += 2;
+      return { ...g, score };
+    }).filter(g => g.score > 0).sort((a, b) => b.score - a.score).slice(0, 4);
+
+    const container = document.getElementById('results-grants');
+    container.innerHTML = '';
+    if (scored.length === 0) {
+      container.innerHTML = '<p style="color:rgba(255,255,255,0.6);text-align:center;">No strong matches found — but more programs are added weekly. Join the early access list to be notified.</p>';
+    } else {
+      scored.forEach(g => {
+        container.innerHTML += `
+          <div class="result-grant">
+            <div class="result-grant-info">
+              <h4>${g.name}</h4>
+              <p>${g.desc}</p>
+            </div>
+            <div class="result-grant-amount">${g.amount}</div>
+          </div>`;
+      });
+    }
+  }
+
+  // ---- EMAIL SIGNUP ----
+  async function handleSignup() {
+    const email = document.getElementById('signup-email').value.trim();
+    const msg = document.getElementById('signup-msg');
+    if (!email || !email.includes('@')) { msg.textContent = 'Please enter a valid email address.'; return; }
+    msg.textContent = 'Submitting…';
     try {
-      await fetch('https://api.madmantra.app/api/landing/grantpilot/signup', {
+      const r = await fetch('https://api.madmantra.app/api/landing/grantpilot/signup', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email })
       });
-      document.getElementById('signup-success').style.display = 'block';
-      document.getElementById('ea-email').value = '';
+      if (r.ok) {
+        msg.textContent = '🎉 You\'re on the list! We\'ll be in touch.';
+        document.getElementById('signup-email').value = '';
+      } else {
+        msg.textContent = 'Something went wrong — please try again.';
+      }
     } catch(e) {
-      alert('Something went wrong — please try again.');
+      msg.textContent = 'Something went wrong — please try again.';
     }
   }
 </script>
